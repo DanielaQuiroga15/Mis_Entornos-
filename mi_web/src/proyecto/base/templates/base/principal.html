@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alumnos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Hedvig+Letters+Sans&family=Hedvig+Letters+Serif:opsz@12..24&family=Lato:ital,wght@1,300&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Cormorant:wght@300&family=Fredoka&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    {% load static %}
+    <style>
+
+        body{
+            background-image: url('{% static "fondo.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family:'Releway',sans-serif;
+            padding-top:40px;
+        }
+        .container{
+            max-width:900px;
+            margin: auto;
+            background-color:#92A9AB  ;
+            -webkit-box-shadow:2px 2px 13px -4px rgba(0,0,0,0.21);
+            box-shadow:2px 2px 13px -4px rgba(0,0,0,0.21);
+        }
+
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-family: 'Almendra SC', serif;
+            font-family: 'Cormorant', serif;
+            font-family: 'Fredoka', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            color:#808080;
+        }
+        a, p {
+            color:#1E1D5E
+        }
+        .barra-superior{
+            display:flex;
+            justify-content: space-between;
+             color:#808080;
+            border-radius: 5px 5px 0 0;
+            background-color:#E9C887 ;
+
+        }
+        .barra-superior a {
+            color: rgb(225,225,255);
+            text-decoration: none;
+
+        }
+        .envoltorio-alumno {
+
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color:#DED9CF ;
+            border-top: 1px solid #ffffff;
+        }
+        .nombre-alumno {
+            display:flex;
+
+         }
+        .nombre-alumno a {
+            text-decoration:none;
+            color:#4b5156;
+            margin-left: 10px;
+
+        }
+        .icono-alumno-completa {
+            height: 20px;
+            width: 20px;
+            background-color:#68C10B ;
+            border-radius:50px;
+            margin-right: 10px;
+        }
+        .icono-alumno-incompleta {
+            height: 20px;
+            width: 20px;
+            background-color: rgb(218,218,218);
+            border-radius:50px;
+            margin-right: 10px;
+        }
+        .enlace-eliminar{
+            text-decoration:none;
+            font-weight:900;
+            color: #018EB4;
+            font-size: 22px;
+            line-height:0;
+        }
+        #envoltorio-agregar-buscar {
+             display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #DED9CF ;
+        }
+        #enlace-agregar {
+            color: #68C10B;
+            text-decoration: none;
+            font-size: 42px;
+            text shadow: 1px 1px #81413B;
+        }
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid #EB796F;
+            border-radius:5px;
+            padding: 10px;
+            widht:90%;
+        }
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+        .boton {
+            border: 1px solid #018EB4 ;
+            background-color: #FAFAFA;
+            color:#018EB4  ;
+            padding: 10px;
+            font-size:14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .cuerpo-formulario {
+            padding:40px;
+            background-color: #DED9CF ;
+
+        }
+        .pie {
+           font-size: 15px;
+           display: flex;
+           color: white;
+           border-radius: 5px;
+           background-color:#E9C887 ;
+           padding: 15px;
+           height: 75px;
+       }
+       .pie h3 {
+          color:#808080;
+          margin-left: 15px;
+          font-size: 25px;
+          white-space: nowrap;
+
+       }
+       .pie img {
+         width: 90px;
+         height: 75px;
+         margin-left: 500px;
+         margin-right: 250px;
+         border-radius: 8px;
+         padding-top:-30px;
+
+      }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+
+</body>
+</html>

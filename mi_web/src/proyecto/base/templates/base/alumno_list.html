@@ -1,0 +1,63 @@
+{% extends 'base/principal.html' %}
+ {% block content %}
+ {% load static %}
+
+<div class="barra-superior">
+    <div>
+        <h1>Hola Docente: {{request.user|title}}</h1>
+        <h3  style="margin:0">Tienes <i>{{count}}</i> alumno{{count|pluralize}} pendiente{{count|pluralize}}</h3>
+    </div>
+    {% if request.user.is_authenticated %}
+        <div class="enlace-salir-container" >
+          <span> <a style="color:#EC6124;" href="{% url 'logout' %}">Salir</a></span>
+        </div>
+    {% else %}
+       <a href="{% url 'login' %}" class="enlace-salir">Ingresar</a>
+    {% endif %}
+
+</div>
+
+<div id="envoltorio-agregar-buscar">
+    <form method="GET" style="margin-top: 20px; display; flex;">
+      <input type="text" name="area-buscar" value="{{valor_buscado}}">
+      <input class="boton" type="submit" value="Buscar">
+
+    </form>
+    <a id="enlace-agregar" href ="{% url 'crear-alumnos' %}">&#x271A;</a>
+</div>
+
+<div class="envoltorio-items-alumno">
+    {% for alumno in alumnos %}
+    <div class="envoltorio-alumno">
+        {% if alumno.completo %}
+        <div class="nombre-alumno">
+            <div class="icono-alumno-completa"></div>
+            <i><s><a  class="editar-alumno" href="{% url 'editar-alumnos' alumno.id %}">{{alumno.nombre}} {{alumno.apellido}}</a></i></s>
+
+        </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-alumnos' alumno.id %}">&#x274C;</a>
+        {% else %}
+        <div class="nombre-alumno">
+            <div class="icono-alumno-incompleta"></div>
+            <a href="{% url 'editar-alumnos' alumno.id %}">{{alumno.nombre}} {{alumno.apellido}}</a>
+        </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-alumnos' alumno.id %}">&#x274C;</a>
+        {% endif %}
+
+
+    </div>
+    {% empty%}
+    <h3>No hay alumnos en la lista</h3>
+
+    {% endfor %}
+
+</div>
+<div class="pie">
+     <h3>Daniela Artaza Quiroga</h3>
+
+    <span><a><img src="{%static 'foto.jpeg' %}"></a></span>
+</div>
+
+{% endblock content %}
+
+
